@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Add Category</title>
+</head>
+<body>
+
+    <div id="addC">Add Receipe</div>
+    <div class="header">
+        
+        <img src="https://firebasestorage.googleapis.com/v0/b/mr-chefsl.appspot.com/o/logo.png?alt=media&token=c106d35b-54af-4a4d-9113-5f07e83e411a"/>
+    </div>
+
+    <div class="inputs">
+
+        
+        <input id="cate_name" placeholder="Category Name"/>
+
+        <div class="imageC">
+            <img id="myimage">
+        </div>
+        <div class="inputs">
+            <label id="upProgress" ></label>
+            <button id="select">Select Image</button><br><br>
+
+    </div>
+
+    
+    <button id="submit" name="sub" >Submit</button>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+        
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyD0J8LtTb4UkzqwVMSFZUzOzsMAgpZ4xZM",
+          authDomain: "mr-chefsl.firebaseapp.com",
+          databaseURL: "https://mr-chefsl-default-rtdb.firebaseio.com",
+          projectId: "mr-chefsl",
+          storageBucket: "mr-chefsl.appspot.com",
+          messagingSenderId: "487317738237",
+          appId: "1:487317738237:web:9224cdf3248a829b43e494",
+          measurementId: "G-32QMXX76G5"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        
+
+        import { getStorage, ref as sRef ,uploadBytesResumable , getDownloadURL} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+        import { getDatabase, ref ,set , get} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+
+        var ImgName,ImgUrl;
+        var files=[];
+        var reader;
+        const db=getDatabase();
+        var arraym=[];
+        var id;
+
+
+        get(ref(db,"posts")).then((snapshot)=>{
+            
+            snapshot.forEach(function(child){
+                
+                arraym.push(child.key);
+            })
+
+            id=Number(arraym[snapshot.size-1])+1;
+            
+            
+        })
+
+
+
+
+        //pick a image from local storage
+       document.getElementById("select").onclick=function(e){
+            var input =document.createElement('input');
+            input.type='file';
+            input.click();
+
+            input.onchange=e=>{
+                files=e.target.files;
+                reader=new FileReader();
+                reader.onload=function(){
+                    document.getElementById("myimage").src=reader.result;
+                }
+                reader.readAsDataURL(files[0]);
+            }
+
+        }
+
+        function Upload(){
+            const metaData={
+                contentType:files[0].type
+            }
+
+            const storage=getStorage();
+            const storageRef=sRef(storage,"cate_images/text.png");
+            const UploadTask=uploadBytesResumable(storageRef,files[0],metaData);
+
+            UploadTask.on("state-changed",(snapshot)=>{
+                var progress=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+                document.getElementById("upProgress").innerHTML='Upload '+progress+'%';
+            },
+            (error)=>{
+                alert(error+" ");
+            },()=>{
+                getDownloadURL(UploadTask.snapshot.ref).then((downloadURL)=>{
+                    set(ref(db,"cate/00"+id),{
+                        name:document.getElementById("cate_name").value,
+                        image:downloadURL,
+                        id:""+id,
+                    })
+                    .then(()=>{alert("success")})
+                    .catch((error)=>{alert(error)})
+                });
+            }
+            );
+        
+
+        }
+
+
+        document.getElementById("submit").addEventListener('click',Upload);
+
+        document.getElementById("addC").addEventListener('click',()=>{
+            window.location.assign("index.html")
+        })
+
+
+
+    </script>
+
+    
+</body>
+</html>

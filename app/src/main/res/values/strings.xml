@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="welcome_inters">ca-app-pub-8464186986201471/8797770811</string>
+    <string name="prof_ban">ca-app-pub-8464186986201471/3455386123</string>
+    <string name="all_post_ban">ca-app-pub-8464186986201471/6486544079</string>
+    <string name="post_view_ban" >ca-app-pub-8464186986201471/4107792741</string>
+    <string name="cate_ban" >ca-app-pub-8464186986201471/5870728686</string>
+
+    <string name="app_name">Mr.Chef SL</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="m_home">Home</string>
+    <string name="m_all_recipies">All Recipes</string>
+    <string name="m_category">Category</string>
+    <string name="m_me">Me</string>
+    <string name="sauces">Sauces</string>
+    <string name="snacks">Snacks</string>
+    <string name="salads">Salads</string>
+    <string name="beverages">Beverages</string>
+    <string name="soups">Soups</string>
+    <string name="sweets">Sweets/Desserts</string>
+    <string name="fish_meats">Fish/Meats</string>
+    <string name="short_eats">Short Eats</string>
+
+
+</resources>

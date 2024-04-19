@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Add Receipe</title>
+    
+</head>
+<body>
+
+
+<div id="addC">
+    <div class="add" id="add">
+        Add Category
+    </div>
+    <div class="view" id="view">
+        View Receipes
+    </div>
+
+</div>
+
+
+    <div class="header">
+        
+        <img src="https://firebasestorage.googleapis.com/v0/b/mr-chefsl.appspot.com/o/logo.png?alt=media&token=c106d35b-54af-4a4d-9113-5f07e83e411a"/>
+    </div>
+
+    <div class="imageC">
+        <img id="myimage">
+    </div>
+            
+            <div class="inputs">
+                <label id="upProgress" ></label>
+                <button id="select">Select Image</button><br><br>
+            <input id="title" name="title" placeholder="title"/><br><br>
+            <input id="stitle" name="stitle" placeholder="sinhala title"/><br><br>
+            <textarea id="desc" name="desc"  rows="4" cols="50"
+                    placeholder="description"></textarea><br><br>
+    
+            <textarea id="sdesc" name="sdesc" rows="4" cols="50" placeholder="sinhala description"></textarea><br><br>
+    
+
+    
+
+            <!-- <input id="fimage" name="fimage" placeholder="final image" type="image" /><br><br> -->
+            <input id="videolink" name="videolink" placeholder="video link"/><br><br>
+            <input id="ing" name="ing" placeholder="ingredients"/><br><br>
+            <input id="sing" name="sing" placeholder="sinhala ingredients"/><br><br>
+            <!-- <input id="cate" name="cate" placeholder="category"/><br><br> -->
+
+
+            
+            <select id="cate_s" name="category">
+                
+            </select>
+    
+
+            <button id="submit" name="sub" >Submit</button>
+    </div>
+
+    <script type="module">
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+        
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyD0J8LtTb4UkzqwVMSFZUzOzsMAgpZ4xZM",
+          authDomain: "mr-chefsl.firebaseapp.com",
+          databaseURL: "https://mr-chefsl-default-rtdb.firebaseio.com",
+          projectId: "mr-chefsl",
+          storageBucket: "mr-chefsl.appspot.com",
+          messagingSenderId: "487317738237",
+          appId: "1:487317738237:web:9224cdf3248a829b43e494",
+          measurementId: "G-32QMXX76G5"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        
+
+        import { getStorage, ref as sRef ,uploadBytesResumable , getDownloadURL} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+        import { getDatabase, ref ,set , get} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+
+        var ImgName,ImgUrl;
+        var files=[];
+        var reader;
+        const db=getDatabase();
+        var id;
+
+
+        var options=document.getElementById("cate_s");
+        var string="<option value='0' >Select a Category</option>";
+
+        get(ref(db,"cate")).then((snapshot)=>{
+            snapshot.forEach(function(child){
+                //alert(child.val().name);
+                // document.getElementById("DropDownList").options.add(options);
+                // options.text=child.val().name;
+                // options.id=child.val().id;
+                string=string+"<option value="+child.val().id+">"+child.val().name+"</option>";
+            })
+            options.innerHTML=string;
+        })
+
+        var ar=[];
+        var posts=[];
+        get(ref(db,"posts")).then((snapshot)=>{
+            snapshot.forEach(function(child){
+                var item={
+                    id:child.key,
+                    title:child.val().title,
+                    Sititle:child.val().Sititle,
+                    desc:child.val().desc,
+                    Sidesc:child.val().Sidesc,
+                    ingredients:child.val().ingredients,
+                    Siingredients:child.val().Siingredients,
+                    image:child.val().image,
+                    video_link:child.val().video_link,
+                    category:child.val().category,
+                    final_image:child.val().final_image
+
+
+                };
+                posts.push(item);
+                ar.push(child.key);
+                
+
+            })
+            id=Number(ar[snapshot.size-1])+1;
+           
+           
+        })
+
+
+        
+//pick a image from local storage
+       document.getElementById("select").onclick=function(e){
+            var input =document.createElement('input');
+            input.type='file';
+            input.click();
+
+            input.onchange=e=>{
+                files=e.target.files;
+                reader=new FileReader();
+                reader.onload=function(){
+                    document.getElementById("myimage").src=reader.result;
+                }
+                reader.readAsDataURL(files[0]);
+            }
+
+        }
+
+
+
+        
+
+        function InsertData(){
+
+            const metaData={
+                contentType:files[0].type
+            }
+            
+            const storage=getStorage();
+            const storageRef=sRef(storage,"post_images/00"+id+".png");
+            const UploadTask=uploadBytesResumable(storageRef,files[0],metaData);
+
+            UploadTask.on("state-changed",(snapshot)=>{
+                var progress=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+                document.getElementById("upProgress").innerHTML='Upload '+progress+'%';
+            },
+            (error)=>{
+                alert(error+" ");
+            },()=>{
+                
+                getDownloadURL(UploadTask.snapshot.ref).then((downloadURL)=>{
+                    //alert(downloadURL);
+                    set(ref(db,"posts/"+"00"+id),{
+                        
+                        title:document.getElementById("title").value,
+                        Sititle:document.getElementById("stitle").value,
+                        desc:document.getElementById("desc").value,
+                        Sidesc:document.getElementById("sdesc").value,
+                        video_link:document.getElementById("videolink").value,
+                        ingredients:document.getElementById("ing").value,
+                        Siingredients:document.getElementById("sing").value,
+                        category:document.getElementById("cate_s").value,
+                        image:downloadURL,
+                        final_image:downloadURL
+                        
+                    })
+                    .then(()=>{alert("success")})
+                    .catch((error)=>{alert(error)})
+                });
+            }
+            );
+            //     set(ref(db,"posts/011"),{
+            //     Name : "test"
+            //     })
+            //     .then(()=>{
+            //         alert("success");
+            //     })
+            //     .catch((error)=>{
+            //         alert(""+error);
+            //     });
+            // }
+            // );
+        }
+
+        
+        document.getElementById("submit").addEventListener('click',InsertData);
+
+        document.getElementById("add").addEventListener('click',()=>{
+            window.location.assign("addCate.html")
+        });
+
+        document.getElementById("view").addEventListener('click',()=>{
+            window.location.assign("posts.html")
+        });
+
+      </script>
+
+
+
+    
+</body>
+</html>

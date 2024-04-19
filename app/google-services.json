@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "487317738237",
+    "project_id": "mr-chefsl",
+    "storage_bucket": "mr-chefsl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487317738237:android:3bdf904e2d4f817943e494",
+        "android_client_info": {
+          "package_name": "com.kingdew.mrchefsl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487317738237-8b3rsdmo0q3lkdohptrnca1emfhmd7en.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoMo0PWyLp7e2_hVyGWeahPEcowkr41BM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487317738237-8b3rsdmo0q3lkdohptrnca1emfhmd7en.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

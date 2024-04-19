@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Recipeies</title>
+
+</head>
+<body>
+
+
+    <h1>All Posts</h1>
+    
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+        
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyD0J8LtTb4UkzqwVMSFZUzOzsMAgpZ4xZM",
+          authDomain: "mr-chefsl.firebaseapp.com",
+          databaseURL: "https://mr-chefsl-default-rtdb.firebaseio.com",
+          projectId: "mr-chefsl",
+          storageBucket: "mr-chefsl.appspot.com",
+          messagingSenderId: "487317738237",
+          appId: "1:487317738237:web:9224cdf3248a829b43e494",
+          measurementId: "G-32QMXX76G5"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        
+
+        import { getStorage, ref as sRef ,uploadBytesResumable , getDownloadURL} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+        import { getDatabase, ref ,set , get} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+
+
+        const db=getDatabase();
+        
+
+        var posts=[];
+        var s="";
+        get(ref(db,"posts")).then((snapshot)=>{
+            snapshot.forEach(function(child){
+                var item={
+                    id:child.key,
+                    title:child.val().title,
+                    Sititle:child.val().Sititle,
+                    desc:child.val().desc,
+                    Sidesc:child.val().Sidesc,
+                    ingredients:child.val().ingredients,
+                    Siingredients:child.val().Siingredients,
+                    image:child.val().image,
+                    video_link:child.val().video_link,
+                    category:child.val().category,
+                    final_image:child.val().final_image
+
+                };
+                
+                posts.push(item);
+                ar.push(child.key)
+            })
+            alert(snapshot.size)
+            
+        })
+
+        function tableCreate(){
+            var body = document.getElementsByTagName('body')[0];
+            var tbl = document.createElement('table');
+            tbl.style.width = '100%';
+            tbl.setAttribute('border', '0');
+            var tbdy = document.createElement('tbody');
+
+            //first row
+            var tr = document.createElement('tr');
+            tr.style.backgroundColor = "yellow";
+
+            var td = document.createElement('td');
+            td.appendChild(document.createTextNode("Post ID"));
+        
+            tr.appendChild(td)
+        
+
+            var td2 = document.createElement('td');
+            td2.appendChild(document.createTextNode("Post Title"));
+            tr.appendChild(td2)
+
+            var td3 = document.createElement('td');
+            td3.appendChild(document.createTextNode("Post Description"));
+            tr.appendChild(td3)
+
+            var td4 = document.createElement('td');
+            td4.appendChild(document.createTextNode("Post Image"));
+            tr.appendChild(td4)
+            
+            
+            tbdy.appendChild(tr);
+            tbl.appendChild(tbdy);
+
+
+            for (let i = 0; i < 2; i++) {
+                //alert(posts.length);
+                // var tr = document.createElement('tr');
+                // var td = document.createElement('td');
+                // td.appendChild(document.createTextNode(posts[i].key));
+                // tr.appendChild(td)
+                // tbdy.appendChild(tr);
+                // tbl.appendChild(tbdy);
+            }
+
+            
+            body.appendChild(tbl)
+
+        }
+        tableCreate();
+
+    </script>
+    
+</body>
+</html>

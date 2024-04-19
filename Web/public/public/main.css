@@ -1,0 +1,737 @@
+*{
+    font-family: monospace;
+    font-size: 15px;
+    
+    
+}
+
+body{
+    background-color: aliceblue;
+    display: block;
+    
+}
+
+input{
+    margin: 0 auto;
+    height: 30px;
+    width: 80%;
+    border-radius: 10px;
+    padding: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+select{
+    margin: 0 auto;
+    height: 30px;
+    width: 80%;
+    border-radius: 10px;
+    padding: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+img{
+    
+    margin: 10px;
+    border-style: solid;
+    border-color: rosybrown;
+    height: auto;
+    width: 20%;
+}
+textarea{
+    width: 80%;
+    border-radius: 10px;
+    padding: 5px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#select{
+    margin: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+#submit{
+    height: 40px;
+    width: 20%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.imageC{
+    
+    width: auto;
+    display: flex;
+    
+
+    justify-content: center;
+    align-items: center;
+    
+}
+.header{
+    width: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#addC{
+    display: flex;
+    background-color: antiquewhite;
+}
+
+.add{
+    font-weight: bold;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.view{
+    font-weight: bold;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+
+
+@media all and (min-width:960px) and (max-width: 1024px) {
+    *{
+        font-family: monospace;
+        font-size: 15px;
+        
+        
+    }
+    
+    body{
+        background-color: aliceblue;
+        display: block;
+        
+    }
+    
+    input{
+        margin: 0 auto;
+        height: 30px;
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        
+        margin: 10px;
+        border-style: solid;
+        border-color: rosybrown;
+        height: auto;
+        width: 20%;
+    }
+    textarea{
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #select{
+        margin: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+    }
+    #submit{
+        height: 40px;
+        width: 20%;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imageC{
+        
+        width: auto;
+        display: flex;
+        
+    
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .header{
+        width: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+
+
+
+
+
+
+
+  
+  @media all and (min-width:801px) and (max-width: 959px) {
+    *{
+        font-family: monospace;
+        font-size: 15px;
+        
+        
+    }
+    
+    body{
+        background-color: aliceblue;
+        display: block;
+        
+    }
+    
+    input{
+        margin: 0 auto;
+        height: 30px;
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        
+        margin: 10px;
+        border-style: solid;
+        border-color: rosybrown;
+        height: auto;
+        width: 20%;
+    }
+    textarea{
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #select{
+        margin: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+    }
+    #submit{
+        height: 40px;
+        width: 20%;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imageC{
+        
+        width: auto;
+        display: flex;
+        
+    
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .header{
+        width: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+
+
+
+
+
+
+
+  
+  @media all and (min-width:769px) and (max-width: 800px) {
+    *{
+        font-family: monospace;
+        font-size: 15px;
+        
+        
+    }
+    
+    body{
+        background-color: aliceblue;
+        display: block;
+        
+    }
+    
+    input{
+        margin: 0 auto;
+        height: 30px;
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        
+        margin: 10px;
+        border-style: solid;
+        border-color: rosybrown;
+        height: auto;
+        width: 20%;
+    }
+    textarea{
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #select{
+        margin: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+    }
+    #submit{
+        height: 40px;
+        width: 20%;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imageC{
+        
+        width: auto;
+        display: flex;
+        
+    
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .header{
+        width: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+
+
+
+  
+  @media all and (min-width:569px) and (max-width: 768px) {
+    *{
+        font-family: monospace;
+        font-size: 15px;
+        
+        
+    }
+    
+    body{
+        background-color: aliceblue;
+        display: block;
+        
+    }
+    
+    input{
+        margin: 0 auto;
+        height: 30px;
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        
+        margin: 10px;
+        border-style: solid;
+        border-color: rosybrown;
+        height: auto;
+        width: 20%;
+    }
+    textarea{
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #select{
+        margin: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+    }
+    #submit{
+        height: 40px;
+        width: 20%;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imageC{
+        
+        width: auto;
+        display: flex;
+        
+    
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .header{
+        width: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+  
+
+
+
+
+  @media all and (min-width:481px) and (max-width: 568px) {
+    *{
+        font-family: monospace;
+        font-size: 15px;
+        
+        
+    }
+    
+    body{
+        background-color: aliceblue;
+        display: block;
+        
+    }
+    
+    input{
+        margin: 0 auto;
+        height: 30px;
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+
+        width: 30%;
+        height: 30%;
+        margin: 10px;
+        border-style: solid;
+        border-color: rosybrown;
+        height: auto;
+        width: 20%;
+    }
+    textarea{
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #select{
+        margin: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+    }
+    #submit{
+        height: 40px;
+        width: 20%;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imageC{
+        
+        width: auto;
+        display: flex;
+        
+    
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .header{
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+
+
+
+
+  
+  @media all and (min-width:321px) and (max-width: 480px) {
+    *{
+        font-family: monospace;
+        font-size: 15px;
+        
+        
+    }
+    
+    body{
+        background-color: aliceblue;
+        display: block;
+        
+    }
+    
+    input{
+        margin: 0 auto;
+        height: 30px;
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        
+        margin: 10px;
+        border-style: solid;
+        border-color: rosybrown;
+        height: auto;
+        width: 20%;
+    }
+    textarea{
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #select{
+        margin: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+    }
+    #submit{
+        height: 40px;
+        width: 20%;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imageC{
+        
+        width: auto;
+        display: flex;
+        
+    
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .header{
+        width: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+
+
+
+
+  
+  @media all and (min-width:0px) and (max-width: 320px) {
+    *{
+        font-family: monospace;
+        font-size: 15px;
+        
+        
+    }
+    
+    body{
+        background-color: aliceblue;
+        display: block;
+        
+    }
+    
+    input{
+        margin: 0 auto;
+        height: 30px;
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        
+        margin: 10px;
+        border-style: solid;
+        border-color: rosybrown;
+        height: auto;
+        width: 20%;
+    }
+    textarea{
+        width: 80%;
+        border-radius: 10px;
+        padding: 5px;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #select{
+        margin: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+    }
+    #submit{
+        height: 40px;
+        width: 20%;
+    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imageC{
+        
+        width: auto;
+        display: flex;
+        
+    
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .header{
+        width: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="welcome_inters">ca-app-pub-8464186986201471/8797770811</string>
+    <string name="prof_ban">ca-app-pub-8464186986201471/5870728686</string>
+    <string name="all_post_ban">ca-app-pub-8464186986201471/6486544079</string>
+    <string name="post_view_ban" >ca-app-pub-8464186986201471/4107792741</string>
+    <string name="cate_ban" >ca-app-pub-8464186986201471/5870728686</string>
+
+
+    <string name="app_name">Mr.Chef SL</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="m_home">Home</string>
+    <string name="m_all_recipies">All Recipies</string>
+    <string name="m_category">Category</string>
+    <string name="m_me">Me</string>
+
+    <string name="sauces">සෝස් වර්ග</string>
+    <string name="snacks">බයිට් වර්ග</string>
+    <string name="salads">සලාද වර්ග</string>
+    <string name="beverages">බීම වර්ග</string>
+    <string name="soups">සුප් වර්ග</string>
+    <string name="sweets">Sweets</string>
+    <string name="fish_meats">මස්/මාලු වර්ග</string>
+    <string name="short_eats">කෙටි කෑම වර්ග</string>
+
+
+</resources>
